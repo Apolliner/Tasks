@@ -1,0 +1,68 @@
+﻿{% load static %}
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Tasks app</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+</head>
+
+
+
+<body>
+    <header>
+        <h1>Приложение для отслеживания дел</h1>
+
+    </header>
+
+
+    <h1>Категории</h1>
+    {% for category in category_list %}
+    <div class="card">
+
+        <a href="/category/{{category.name}}/"> <h2>{{ category.name }}</h2> </a>
+        <p>{{ category.description }}</p>
+    </div>
+    {% endfor %}
+    <div class="card">
+        <h2>Добавить категорию</h2>
+        <p>нажмите здесь</p>
+    </div>
+    <h4>
+        Управляемые базы данных PostgreSQL. В Yandex.Cloud
+        cloud.yandex.ru›PostgreSQL
+        реклама
+        С Yandex.Cloud удобнее создавать и развивать сервисы. Создайте кластер в один клик. · Грант на знакомство. Оплата только за ресурсы. Удобная консоль. 152-ФЗ
+        ВосстановлениеКопии в разных зонахЛегко обслуживатьШифрование
+        Контактная информация+7 (495) 780-XX-XX Показатьбудни 10:00-19:00
+        Как настроить PostgreSQL? При МГТУ им. Баумана
+        specialist.ru›Курсы-PostgreSQL
+        реклама
+        Обучение при МГТУ Баумана. Более 1 млн выпускников. Сертификат PostgreSQL · Более 1 млн. выпускников. 100% интерактив. Обучение очно и онлайн
+        Онлайн-обучениеКредитНам доверяют работодателиТрудоустройство
+        Контактная информация+7 (495) 232-XX-XX Показать
+        Установка PostgreSQL 11 на Windows. Пошаговая...
+        info-comp.ru›sisadminst/684-install-postgresql-11…
+        Всем привет, сегодня мы подробно рассмотрим процесс установки PostgreSQL 11 на операционную систему Windows, Вы узнаете... Читать ещё
+    </h4>
+    <h1>Задачи</h1>
+    {% for task in tasks_list %}
+        {% if task.complete %}
+        <div class="card-complete">
+            <a href="/tasks/{{task.title}}/"><h2>{{ task.title }}</h2></a>
+            <p>{{ task.content }}</p>
+        </div>
+        {% else %}
+        <div class="card">
+            <a href="/tasks/{{task.title}}/"><h2>{{ task.title }}</h2></a>
+            <p>{{ task.content }}</p>
+        {% endif %}
+        </div>
+    {% endfor %}
+    <div class="card">
+        <h2>Добавить задачу</h2>
+        <p>нажмите здесь</p>
+    </div>
+</body>
+</html>
