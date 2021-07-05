@@ -1,0 +1,682 @@
+openapi: 3.0.3
+info:
+  title: Tasks API
+  version: 1.0.0
+  description: ToDo app
+paths:
+  /category-{id}/:
+    get:
+      operationId: category__retrieve
+      description: ''
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - category-
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category_serializer'
+          description: ''
+    put:
+      operationId: category__update
+      description: ''
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - category-
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category_serializer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Category_serializer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Category_serializer'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category_serializer'
+          description: ''
+    patch:
+      operationId: category__partial_update
+      description: ''
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - category-
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCategory_serializer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCategory_serializer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCategory_serializer'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category_serializer'
+          description: ''
+    delete:
+      operationId: category__destroy
+      description: ''
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - category-
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /create-category/:
+    post:
+      operationId: create_category_create
+      description: ''
+      tags:
+      - create-category
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category_serializer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Category_serializer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Category_serializer'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category_serializer'
+          description: ''
+  /create-task/:
+    post:
+      operationId: create_task_create
+      description: ''
+      tags:
+      - create-task
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task_serializer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Task_serializer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Task_serializer'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task_serializer'
+          description: ''
+  /rest_view/Category/:
+    get:
+      operationId: rest_view_Category_list
+      description: ''
+      tags:
+      - rest_view
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category_serializer'
+          description: ''
+    post:
+      operationId: rest_view_Category_create
+      description: ''
+      tags:
+      - rest_view
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category_serializer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Category_serializer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Category_serializer'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category_serializer'
+          description: ''
+  /rest_view/Category/{id}/:
+    get:
+      operationId: rest_view_Category_retrieve
+      description: ''
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this category.
+        required: true
+      tags:
+      - rest_view
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category_serializer'
+          description: ''
+    put:
+      operationId: rest_view_Category_update
+      description: ''
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this category.
+        required: true
+      tags:
+      - rest_view
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category_serializer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Category_serializer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Category_serializer'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category_serializer'
+          description: ''
+    patch:
+      operationId: rest_view_Category_partial_update
+      description: ''
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this category.
+        required: true
+      tags:
+      - rest_view
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCategory_serializer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCategory_serializer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCategory_serializer'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category_serializer'
+          description: ''
+    delete:
+      operationId: rest_view_Category_destroy
+      description: ''
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this category.
+        required: true
+      tags:
+      - rest_view
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /rest_view/Task/:
+    get:
+      operationId: rest_view_Task_list
+      description: ''
+      tags:
+      - rest_view
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task_serializer'
+          description: ''
+    post:
+      operationId: rest_view_Task_create
+      description: ''
+      tags:
+      - rest_view
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task_serializer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Task_serializer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Task_serializer'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task_serializer'
+          description: ''
+  /rest_view/Task/{id}/:
+    get:
+      operationId: rest_view_Task_retrieve
+      description: ''
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this task.
+        required: true
+      tags:
+      - rest_view
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task_serializer'
+          description: ''
+    put:
+      operationId: rest_view_Task_update
+      description: ''
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this task.
+        required: true
+      tags:
+      - rest_view
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task_serializer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Task_serializer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Task_serializer'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task_serializer'
+          description: ''
+    patch:
+      operationId: rest_view_Task_partial_update
+      description: ''
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this task.
+        required: true
+      tags:
+      - rest_view
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedTask_serializer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedTask_serializer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedTask_serializer'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task_serializer'
+          description: ''
+    delete:
+      operationId: rest_view_Task_destroy
+      description: ''
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this task.
+        required: true
+      tags:
+      - rest_view
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /task-{id}/:
+    get:
+      operationId: task__retrieve
+      description: ''
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - task-
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task_serializer'
+          description: ''
+    put:
+      operationId: task__update
+      description: ''
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - task-
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task_serializer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Task_serializer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Task_serializer'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task_serializer'
+          description: ''
+    patch:
+      operationId: task__partial_update
+      description: ''
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - task-
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedTask_serializer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedTask_serializer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedTask_serializer'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task_serializer'
+          description: ''
+    delete:
+      operationId: task__destroy
+      description: ''
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - task-
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+components:
+  schemas:
+    Category_serializer:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 40
+        description:
+          type: string
+          maxLength: 1000
+      required:
+      - description
+      - id
+    PatchedCategory_serializer:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 40
+        description:
+          type: string
+          maxLength: 1000
+    PatchedTask_serializer:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 250
+        content:
+          type: string
+        created_date:
+          type: string
+          format: date
+        finish_date:
+          type: string
+          format: date
+        category:
+          type: string
+          format: uri
+        complete:
+          type: boolean
+    Task_serializer:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 250
+        content:
+          type: string
+        created_date:
+          type: string
+          format: date
+        finish_date:
+          type: string
+          format: date
+        category:
+          type: string
+          format: uri
+        complete:
+          type: boolean
+      required:
+      - id
+      - title
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: Session

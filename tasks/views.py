@@ -270,9 +270,12 @@ def edit_task(request, id):
     try:
         task = Task.objects.get(id=id)
         if request.method == "POST":
-            task.title = request.POST.get("title")
-            task.content = request.POST.get("content")
-            task.finish_date = request.POST.get("finish_date")
+            if str(request.POST.get("title")) != 'None':
+                task.title = request.POST.get("title")
+            if str(request.POST.get("content")) != 'None':
+                task.content = request.POST.get("content")
+            if str(request.POST.get("finish_date")) != 'None':
+                task.finish_date = request.POST.get("finish_date")
             task.save()
             return redirect("/")
         else:

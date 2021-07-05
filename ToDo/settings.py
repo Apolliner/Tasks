@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework', 
     'djoser',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
    os.path.join(BASE_DIR, "tasks/static"),
 ]
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Tasks API',
+    'DESCRIPTION': 'ToDo app',
+    'VERSION': '1.0.0',
+    # OTHER SETTINGS
+}
