@@ -6,63 +6,59 @@
     <meta charset="utf-8" />
     <title>Tasks app</title>
     <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Roboto+Slab:wght@400;800&display=swap" rel="stylesheet">
 </head>
 
 
 
 <body>
     <header>
-        <h1>Приложение для отслеживания дел</h1>
+        <h1 class="title-font">Приложение для отслеживания дел</h1>
 
     </header>
 
+    <section class="all-content">
+        <h1 class="title-font">Категории</h1>
+        <div class="card-menu">
+            {% for category in category_list %}
+            <div class="card">
 
-    <h1>Категории</h1>
-    {% for category in category_list %}
-    <div class="card">
+                <a href="/category/{{category.name}}/"> <h2 class="card-title-font">{{ category.name|truncatechars:10 }}</h2> </a>
+                <p class="card-description-font">{{ category.description|truncatechars:100 }}</p>
 
-        <a href="/category/{{category.name}}/"> <h2>{{ category.name }}</h2> </a>
-        <p>{{ category.description }}</p>
-    </div>
-    {% endfor %}
-    <div class="card">
-        <h2>Добавить категорию</h2>
-        <p>нажмите здесь</p>
-    </div>
-    <h4>
-        Управляемые базы данных PostgreSQL. В Yandex.Cloud
-        cloud.yandex.ru›PostgreSQL
-        реклама
-        С Yandex.Cloud удобнее создавать и развивать сервисы. Создайте кластер в один клик. · Грант на знакомство. Оплата только за ресурсы. Удобная консоль. 152-ФЗ
-        ВосстановлениеКопии в разных зонахЛегко обслуживатьШифрование
-        Контактная информация+7 (495) 780-XX-XX Показатьбудни 10:00-19:00
-        Как настроить PostgreSQL? При МГТУ им. Баумана
-        specialist.ru›Курсы-PostgreSQL
-        реклама
-        Обучение при МГТУ Баумана. Более 1 млн выпускников. Сертификат PostgreSQL · Более 1 млн. выпускников. 100% интерактив. Обучение очно и онлайн
-        Онлайн-обучениеКредитНам доверяют работодателиТрудоустройство
-        Контактная информация+7 (495) 232-XX-XX Показать
-        Установка PostgreSQL 11 на Windows. Пошаговая...
-        info-comp.ru›sisadminst/684-install-postgresql-11…
-        Всем привет, сегодня мы подробно рассмотрим процесс установки PostgreSQL 11 на операционную систему Windows, Вы узнаете... Читать ещё
-    </h4>
-    <h1>Задачи</h1>
-    {% for task in tasks_list %}
-        {% if task.complete %}
-        <div class="card-complete">
-            <a href="/tasks/{{task.title}}/"><h2>{{ task.title }}</h2></a>
-            <p>{{ task.content }}</p>
+            </div>
+            {% endfor %}
+            <div class="card-add">
+                <a href="/category/add"><h2 class="card-title-font">Добавить категорию</h2></a>
+                <p class="card-description-font">нажмите здесь</p>
+            </div>
         </div>
-        {% else %}
-        <div class="card">
-            <a href="/tasks/{{task.title}}/"><h2>{{ task.title }}</h2></a>
-            <p>{{ task.content }}</p>
-        {% endif %}
+
+        <h1 class="title-font">Актуальные задачи</h1>
+        <div class="card-menu">
+            {% for task in tasks_list %}
+            {% if not task.complete %}
+
+            <div class="card">
+                <a href="/tasks/{{task.id}}/"><h2 class="card-title-font">{{ task.title|truncatechars:13 }}</h2></a>
+                <p class="card-description-font">{{ task.content|truncatechars:100 }}</p>
+                <p class="card_date_font">до {{ task.finish_date }}</p>
+
+            </div>
+            {% endif %}
+            {% endfor %}
+            <div class="card-add">
+                <a href="/tasks/add"><h2 class="card-title-font">Добавить задачу</h2></a>
+                <p class="card-description-font">нажмите здесь</p>
+            </div>
         </div>
-    {% endfor %}
-    <div class="card">
-        <h2>Добавить задачу</h2>
-        <p>нажмите здесь</p>
-    </div>
+
+        <footer class="footer">
+            <h4 class="footer-author">Tasks 2021</h4>
+        </footer>
+    </section>
+    
 </body>
 </html>

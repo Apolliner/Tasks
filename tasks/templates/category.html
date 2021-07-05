@@ -6,30 +6,44 @@
     <meta charset="utf-8" />
     <title>Tasks app</title>
     <link rel="stylesheet" href="../../static/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Roboto+Slab:wght@400;800&display=swap" rel="stylesheet">
 </head>
-
-
 
 <body>
     <header>
-        <h1>{{ name }}</h1>
+        <h1 class="title-font">{{ name }}</h1>
         <p>{{ description }}</p>
 
     </header>
-    <h1>Дела</h1>
-    {% for task in tasks %}
+    <section class="all-content">
+        <h1>Дела</h1>
+        {% for task in tasks %}
+        {% if task.complete %}
+        <div class="card-complete">
+            <a href="/tasks/{{task.id}}/"><h2 class="card-title-font">{{ task.title }}</h2></a>
+            <p class="card-description-font">{{ task.content|truncatechars:100 }}</p>
+            <p class="card_date_font">до {{ task.finish_date }}</p>
+        </div>
+        {% else %}
+        <div class="card">
+            <a href="/tasks/{{task.id}}/"><h2 class="card-title-font">{{ task.title }}</h2></a>
+            <p class="card-description-font">{{ task.content|truncatechars:100 }}</p>
+            <p class="card_date_font">до {{ task.finish_date }}</p>
+        </div>
+        {% endif %}
 
-    <div class="card">
-        <h2>{{ task.title }}</h2>
-        <h4>{{ task.finish_date }} - Дата окончания</h4>
-        <h1>{{ task.complete }}</h1>
-    </div>
+        {% endfor %}
+        <div class="card-add">
+            <a href="/tasks/add"><h2 class="card-title-font">Добавить дело</h2></a>
+            <p class="card-description-font">нажмите здесь</p>
+        </div>
 
-    {% endfor %}
-    <div class="card">
-        <h2>Добавить категорию</h2>
-        <p>нажмите здесь</p>
-    </div>
+        <footer class="footer">
+            <h4 class="footer-author">Tasks 2021</h4>
+        </footer>
+    </section>
 </body>
 </html>
 

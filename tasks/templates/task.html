@@ -6,23 +6,36 @@
     <meta charset="utf-8" />
     <title>Tasks app</title>
     <link rel="stylesheet" href="../../static/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Roboto+Slab:wght@400;800&display=swap" rel="stylesheet">
 </head>
 
 
 
 <body>
     <header>
-        <h1>{{ name }}</h1>
+        <h1 class="title-font">{{ name }}</h1>
         <p>{{ description }}</p>
         <h4>{{ category }} - Категория</h4>
         <h4>{{ created_date }} - Дата начала</h4>
         <h4>{{ finish_date }} - Дата окончания</h4>
-        <h1>{{ complete }}</h1>
-
+        {% if complete %}
+        <h1>Task complete</h1>
+        {% else %}
+        <form action="../../complete/{{ task_id }}">
+            <button type="submit">COMPLETE</button>
+        </form>
+        {% endif %}
     </header>
+    <section class="all-content">
+    </section>
+    <footer class="footer">
+        <h4 class="footer-author">Tasks 2021</h4>
+    </footer>
 </body>
 </html>
- 
-        
+
+
 
 

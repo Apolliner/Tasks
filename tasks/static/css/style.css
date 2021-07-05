@@ -1,17 +1,59 @@
-﻿body {
+﻿body, h1, h2, h3, h4, p, a {
+    margin: 0;
+    font-size: 100%;
+    font-weight: normal
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.all-content {
     width: 100%;
     background-image: url(../img/space_img.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
+    padding-top: 50px;
+    margin: auto;
 }
-
 header {
     width: 100%;
     background-color: gold;
     padding: 2%;
-    margin: 0%;
+    text-align: center;
+}
+
+.title-font {
+    font-family: 'Roboto Slab', serif;
+    font-size: 50px;
+    color: white;
+}
+
+.card-title-font {
+    font-family: 'Roboto Slab', cursive;
+    font-size: 20px;
+    color: black;
+}
+.card-description-font {
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    color: black;
+}
+.card_date_font {
+    font-family: 'Caveat', MelodBold;
+    font-size: 20px;
+    color: darkred;
+}
+
+.card-menu {
+    width: 100%;
+    height: auto;
+    background-color: gold;
+    padding: 2%;
+    margin: auto auto 50px auto;
+
 }
 
 .menu {
@@ -23,25 +65,56 @@ header {
 }
 
 .card {
-    margin: 5%;
-    width: 20%;
     height: 200px;
+    margin: 10px;
+    width: 200px;
     display: inline-block;
-    background-color: darksalmon;
+    background-color: aquamarine;
     box-shadow: rgba(0, 0, 0, .1) 0 5px 5px;
     object-fit: cover;
     position: relative;
     padding: 10px;
+    vertical-align: top;
+    display: inline-block;
 }
 
 .card-complete {
-    margin: 5%;
-    width: 20%;
     height: 200px;
+    margin: 10px;
+    width: 200px;
     display: inline-block;
     background-color: dimgray;
     box-shadow: rgba(0, 0, 0, .1) 0 5px 5px;
     object-fit: cover;
     position: relative;
     padding: 10px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.card-add {
+    height: 200px;
+    margin: 10px;
+    width: 200px;
+    display: inline-block;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, .1) 0 5px 5px;
+    object-fit: cover;
+    position: relative;
+    padding: 10px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.footer {
+    height: 200px;
+    background-color: gold;
+    display: flex;
+}
+
+.footer-author {
+    font-size: 24px;
+    color: white;
+    margin: auto;
+    font-family: 'Roboto Slab', serif;
 }
