@@ -1,0 +1,19 @@
+category,4,general,test category
+category,5,non general,test category -- test category -- test category
+category,6,add general,description category
+category,7,test general,dfgsdrgsdr
+category,8,Денис,test category -- test category -- test category test category -- test category -- test categorytest category -- test category -- test categorytest category -- test category -- test categorytest category -- test category -- test category
+category,9,mmmmmmmmmmmmmmm,mmmmmmmmmmmmmmmmmm
+task,11,rest,Django REST Framework,2021-07-05,2021-07-23,Денис,False
+task,12,rest,Django REST Framework,2021-07-05,2021-07-23,Денис,False
+task,13,gggggggggggggggg,vvvvvvvvvvvvvvvv,2021-07-05,2021-07-24,Денис,False
+task,1,test task,eqtgesju4sreiju4rijw45rjursjhretj,2021-07-04,2021-07-21,general,True
+task,2,saefsawrfesafeaw,saefsaefsaef\esafesafsaefesafesaf,2021-07-04,2021-07-04,non general,True
+task,3,dfgtfgfxdktgxdyk,cgykdgkydtkytdyk,2021-07-04,2021-07-04,general,False
+task,4,test taskzdfbdfb,klukl ijlilh ikluhklubh klubh uhkubhuhuh iohiuohiohih iohiohiohioh iohiohipoh,2021-07-04,2021-07-15,general,False
+task,5,test taskzdfbdfb,klukl ijlilh ikluhklubh klubh uhkubhuhuh iohiuohiohih iohiohiohioh iohiohipoh,2021-07-04,2021-07-15,general,True
+task,6,nnnnnnnnnnnnnnnnnnn,nnnnnnnnnnnnnnn,2021-07-04,2021-07-28,add general,False
+task,7,test taskzdfbdfb,nnnnnnnnnnnnnnn,2021-07-04,2021-07-22,Денис,True
+task,8,drgdsrhg,dfhdshdhfhfd,2021-07-04,2021-07-16,general,False
+task,9,lllllllllllllll,lllllllllllllll,2021-07-04,2021-07-30,general,False
+task,10,;;;;;;;;;;,;;;;;;;;;;;;,2021-07-04,2021-07-23,general,False

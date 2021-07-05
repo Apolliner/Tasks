@@ -16,6 +16,7 @@
     background-attachment: fixed;
     background-size: cover;
     padding-top: 50px;
+    padding-bottom: 0px;
     margin: auto;
 }
 header {
@@ -53,7 +54,41 @@ header {
     background-color: gold;
     padding: 2%;
     margin: auto auto 50px auto;
+}
 
+.save-button {
+    width: 500px;
+    height: 100px;
+    line-height: 100px;
+    background-color: forestgreen;
+    text-align: center;
+    object-fit: cover;
+    margin: 50px auto;
+}
+.load-button {
+    width: 500px;
+    height: 100px;
+    line-height: 100px;
+    background-color: crimson;
+    text-align: center;
+    object-fit: cover;
+    margin: 50px auto;
+}
+
+.task-description-card {
+    width: 600px;
+    height: auto;
+    background-color: white;
+    text-align: center;
+    object-fit: cover;
+    margin: auto;
+    padding: 5%;
+}
+
+.save-load-font {
+    font-family: 'Roboto Slab', serif;
+    font-size: 30px;
+    color: white;
 }
 
 .menu {
@@ -110,6 +145,7 @@ header {
     height: 200px;
     background-color: gold;
     display: flex;
+    margin-top: 50px;
 }
 
 .footer-author {

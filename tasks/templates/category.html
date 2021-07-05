@@ -13,22 +13,22 @@
 
 <body>
     <header>
-        <h1 class="title-font">{{ name }}</h1>
+        <h1 class="title-font">Категория {{ name }}</h1>
         <p>{{ description }}</p>
 
     </header>
     <section class="all-content">
-        <h1>Дела</h1>
+
         {% for task in tasks %}
         {% if task.complete %}
         <div class="card-complete">
-            <a href="/tasks/{{task.id}}/"><h2 class="card-title-font">{{ task.title }}</h2></a>
+            <a href="/tasks/{{task.id}}/"><h2 class="card-title-font">{{ task.title|truncatechars:10 }}</h2></a>
             <p class="card-description-font">{{ task.content|truncatechars:100 }}</p>
-            <p class="card_date_font">до {{ task.finish_date }}</p>
+            <p class="card_date_font">Completed</p>
         </div>
         {% else %}
         <div class="card">
-            <a href="/tasks/{{task.id}}/"><h2 class="card-title-font">{{ task.title }}</h2></a>
+            <a href="/tasks/{{task.id}}/"><h2 class="card-title-font">{{ task.title|truncatechars:10 }}</h2></a>
             <p class="card-description-font">{{ task.content|truncatechars:100 }}</p>
             <p class="card_date_font">до {{ task.finish_date }}</p>
         </div>
@@ -38,6 +38,14 @@
         <div class="card-add">
             <a href="/tasks/add"><h2 class="card-title-font">Добавить дело</h2></a>
             <p class="card-description-font">нажмите здесь</p>
+        </div>
+        <div class="save-load-area">
+            <div class="save-button">
+                <a href="../../edit_category/{{ id }}"><h1 class="save-load-font">Изменить категорию</h1></a>
+            </div>
+            <div class="load-button">
+                <a href="../../delete_category/{{ id }}"><h1 class="save-load-font">Удалить категорию</h1></a>
+            </div>
         </div>
 
         <footer class="footer">

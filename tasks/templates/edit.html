@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Модели в Django</title>
+</head>
+<body class="container">
+    <form method="POST">
+        {% csrf_token %}
+        {% if type == 'category' %}
+        <p>
+            <label>Введите название категории</label><br>
+            <input type="text" name="name" value="{{category.name}}" />
+        </p>
+        <p>
+            <label>Введите описание категории</label><br>
+            <input type="text" name="description" value="{{category.description}}" />
+        </p>
+        <input type="submit" value="Сохранить">
+        {% else %}
+        <p>
+            <label>Введите название задачи</label><br>
+            <input type="text" name="title" value="{{task.title}}" />
+        </p>
+        <p>
+            <label>Введите описание задачи</label><br>
+            <input type="text" name="content" value="{{task.content}}" />
+        </p>
+        <p>
+            <label>Введите дату завершения задачи</label><br>
+            <input type="date" name="finish_date" value="{{task.finish_date}}" />
+        </p>
+        <input type="submit" value="Сохранить">
+        {% endif %}
+    </form>
+</body>
+</html>

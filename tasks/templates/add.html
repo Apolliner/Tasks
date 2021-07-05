@@ -15,14 +15,15 @@
         <h1 class="title-font">Создание {{ description }}</h1>
     </header>
     <section class="all-content">
-        <form method="POST" role="form">
-            {% csrf_token %}
-            <table>
-                {{ form }}
-            </table>
-            <input type="submit" value="Send">
-        </form>
-
+        <div class="task-description-card">
+            <form method="POST" role="form">
+                {% csrf_token %}
+                <table>
+                    {{ form }}
+                </table>
+                <input type="submit" value="Send">
+            </form>
+        </div>
         <footer class="footer">
             <h4 class="footer-author">Tasks 2021</h4>
         </footer>

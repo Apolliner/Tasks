@@ -19,12 +19,7 @@ class TaskForm(forms.Form):
     content = forms.CharField(label='Description task', max_length=1000)
     finish_date = forms.DateField(label='Finish date', widget=MyDateInput({'class': 'form-control'}))
     category = forms.ChoiceField(label='Category', choices = category_name_list)
-    #def __init__(self, *args, **kwargs):
-        #self.category_list = Category.objects.order_by('id')
-        #self.category_name_list = []
-        #for category in category_list:
-            #self.category_name_list.append((str(category.name), str(category.name)))
-        #self.category = forms.ChoiceField(label='Category', choices = category_name_list)
+
 
 
 

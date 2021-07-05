@@ -15,7 +15,7 @@
 
 <body>
     <header>
-        <h1 class="title-font">Приложение для отслеживания дел</h1>
+        <h1 class="title-font">Приложение для ведения дел</h1>
 
     </header>
 
@@ -52,6 +52,14 @@
             <div class="card-add">
                 <a href="/tasks/add"><h2 class="card-title-font">Добавить задачу</h2></a>
                 <p class="card-description-font">нажмите здесь</p>
+            </div>
+        </div>
+        <div class="save-load-area">
+            <div class="save-button">
+                <a href="{% url 'csv_database_write' %}"><h1 class="save-load-font">Сохранить базу данных</h1></a>
+            </div>
+            <div class="load-button">
+                <a href="{% url 'csv_database_read' %}"><h1 class="save-load-font">Загрузить базу данных</h1></a>
             </div>
         </div>
 

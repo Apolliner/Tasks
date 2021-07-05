@@ -16,23 +16,34 @@
 <body>
     <header>
         <h1 class="title-font">{{ name }}</h1>
-        <p>{{ description }}</p>
-        <h4>{{ category }} - Категория</h4>
-        <h4>{{ created_date }} - Дата начала</h4>
-        <h4>{{ finish_date }} - Дата окончания</h4>
-        {% if complete %}
-        <h1>Task complete</h1>
-        {% else %}
-        <form action="../../complete/{{ task_id }}">
-            <button type="submit">COMPLETE</button>
-        </form>
-        {% endif %}
     </header>
     <section class="all-content">
+        <div class="task-description-card">
+            <h4 class="card-title-font">{{ description }}</h4>
+            <h4 class="card-description-font">Категория - {{ category }}</h4>
+            <h4 class="card_date_font">Дата начала - {{ created_date }}</h4>
+            <h4 class="card_date_font">Дата окончания - {{ finish_date }}</h4>
+            {% if complete %}
+            <h1 class="card-title-font">ДЕЛО СДЕЛАНО</h1>
+            {% else %}
+            <form action="../../complete/{{ id }}">
+                <button type="submit">COMPLETE</button>
+            </form>
+            {% endif %}
+        </div>
+        <div class="save-load-area">
+            <div class="save-button">
+                <a href="../../edit_task/{{ id }}"><h1 class="save-load-font">Изменить задачу</h1></a>
+            </div>
+            <div class="load-button">
+                <a href="../../delete_task/{{ id }}"><h1 class="save-load-font">Удалить задачу</h1></a>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <h4 class="footer-author">Tasks 2021</h4>
+        </footer>
     </section>
-    <footer class="footer">
-        <h4 class="footer-author">Tasks 2021</h4>
-    </footer>
 </body>
 </html>
 
