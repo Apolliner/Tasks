@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'rest_framework', 
     'djoser',
     'drf_spectacular',
+    'rest_framework_swagger',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
